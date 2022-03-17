@@ -27,11 +27,11 @@ def save_new_raw_data():
     Save new raw data from the source
     """    
     # Open the CSV file in read mode
-    with open(source_path, mode="r", encoding="windows-1252") as csv_file:
+    with open(source_path, mode="r", encoding="utf-8") as csv_file:
         reader = csv.DictReader(csv_file)
 
         row = next(reader)  # Get first row from reader
-        print("[Extract] First row example:", row)
+        #print("[Extract] First row example:", row)
 
         # Open the CSV file in write mode
         with open(
@@ -45,10 +45,10 @@ def save_new_raw_data():
                 "City": "city",
                 "Sport": "sport",
                 "Discipline": "discipline",
-                "Athelete": "athlete",
+                "Athlete": "athlete",
                 "Country": "country",
                 "Gender":"gender",
-                "Event":"event",
+                "Event":"medal_event",
                 "Medal":"medal"
             }
             writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
